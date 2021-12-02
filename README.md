@@ -3,7 +3,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/viruskizz/42bangkok-piscinec-scripts/blob/main/assets/logo-42-test-suite.png">
+  <a href="https://github.com/viruskizz/42bangkok-piscinec-scripts/blob/main/logo-42-test-suite.png">
     <img src="images/logo.png" alt="Logo" width="80" height="80">
   </a>
 </div>
@@ -85,7 +85,7 @@ git clone http://git-x-x.com/xxxxx/ c00
 ~/evaluate-c.sh check_c00
 ```
 
-_~ขอให้โชคดีกับการ Piscine ครับ GoodLuck xD~_
+_\~ขอให้โชคดีกับการ Piscine ครับ GoodLuck xD\~_
 
 <!-- CONTACT -->
 ## Contact
@@ -97,4 +97,4 @@ Araiva
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[product-screenshot]: https://github.com/viruskizz/42bangkok-piscinec-scripts/blob/main/example/evaluate-result-script.png
+[product-screenshot]: https://github.com/viruskizz/42bangkok-piscinec-scripts/blob/main/assets/evaluate-result-script.png

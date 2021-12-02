@@ -4,7 +4,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/viruskizz/42bangkok-piscinec-scripts">
-    <img src="https://github.com/viruskizz/42bangkok-piscinec-scripts/blob/main/logo-42-test-suite.png" alt="Logo" width="80" height="80">
+    <img src="https://github.com/viruskizz/42bangkok-piscinec-scripts/blob/main/logo-42-test-suite.png" alt="Logo" height="180">
   </a>
 </div>
 

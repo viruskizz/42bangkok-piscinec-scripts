@@ -1,4 +1,3 @@
-#!/bin/bash
 #!/bin/sh
 # Compile C with error check arument
 # Author Araiva

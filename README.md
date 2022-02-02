@@ -82,7 +82,17 @@ git clone http://git-x-x.com/xxxxx/ c00
 
 # run automate test
 # ~/evaluate-c.sh <test_dir> <evaluated_dir>
-~/evaluate-c.sh check_c00
+~/evaluate-c.sh check_c00 c00
+```
+
+**Alternate Solution with downloading**
+You also can download main.c testing in release asset on Github following by this link [Stable-Release](https://github.com/viruskizz/42bangkok-piscinec-scripts/releases/tag/stable) select your c subject as you wish and copy it into your root working directory. by the way, you can use http download into your directoy instead.
+```sh
+## Download
+curl https://github.com/viruskizz/42bangkok-piscinec-scripts/releases/download/stable/check_c00.tar.gz -OL check_c00.tar.gz
+## Ungzip
+tar -xvzf check_c00.tar.gz
+~/evaluate-c.sh check_c00 c00
 ```
 
 _\~ขอให้โชคดีกับการ Piscine ครับ GoodLuck xD\~_

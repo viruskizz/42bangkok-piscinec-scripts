@@ -86,6 +86,7 @@ git clone http://git-x-x.com/xxxxx/ c00
 ```
 
 **Alternate Solution with downloading**
+
 You also can download main.c testing in release asset on Github following by this link [Stable-Release](https://github.com/viruskizz/42bangkok-piscinec-scripts/releases/tag/stable) select your c subject as you wish and copy it into your root working directory. by the way, you can use http download into your directoy instead.
 ```sh
 ## Download

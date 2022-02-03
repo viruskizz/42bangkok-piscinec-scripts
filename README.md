@@ -68,12 +68,14 @@ chmod +x ~/evaluate-c.sh
 Not spcial use for vim and gitignore. You can learn more about [vim editor](https://www.vim.org/) and [gitignore file](https://git-scm.com/docs/gitignore) to configuration futher as you need.
 
 **To Testing your exercise**
+
 change to your _exercise directory_ and execute script and your file
 ```sh
 cd
 ~/test-c.sh 
 ```
 **To Evaluating your friend**
+
 change to your _root directory_ and run script with your exercise (including with main.c ready for test) or using check_c0x and your friend friend exercise that would be evaluated.
 
 ```sh
@@ -82,7 +84,18 @@ git clone http://git-x-x.com/xxxxx/ c00
 
 # run automate test
 # ~/evaluate-c.sh <test_dir> <evaluated_dir>
-~/evaluate-c.sh check_c00
+~/evaluate-c.sh check_c00 c00
+```
+
+**Alternate Solution with downloading**
+
+You also can download main.c testing in release asset on Github following by this link [Stable-Release](https://github.com/viruskizz/42bangkok-piscinec-scripts/releases/tag/stable) select your c subject as you wish and copy it into your root working directory. by the way, you can use http download into your directoy instead.
+```sh
+## Download
+curl https://github.com/viruskizz/42bangkok-piscinec-scripts/releases/download/stable/check_c00.tar.gz -OL check_c00.tar.gz
+## Ungzip
+tar -xvzf check_c00.tar.gz
+~/evaluate-c.sh check_c00 c00
 ```
 
 _\~ขอให้โชคดีกับการ Piscine ครับ GoodLuck xD\~_

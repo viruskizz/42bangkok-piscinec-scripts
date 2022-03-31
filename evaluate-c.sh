@@ -30,11 +30,13 @@ norminette -R CheckForbiddenSourceHeader $2/*/ft*
 echo ">> Done <<"
 echo ""
 
-TEST_FILES=$(find $t_path -name $TEST_FILE_NAME | sort -d)
+n=$(find $t_path -name $TEST_FILE_NAME | sort -d | wc -l)
+start=0
+end=$((n -1))
 
-for f in $TEST_FILES;
+for i in `seq -f '%02g' $start $end`;
 do
-  	ex=$(cut -d '/' -f2 <<< "$f")
+  	ex=ex$i
   	t_file=$(find "$t_path" -name $TEST_FILE_NAME | grep "$ex")  
   	e_file=$(find "$e_path" -name ft_*.c | grep "$ex")  
 

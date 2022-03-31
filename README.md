@@ -63,8 +63,14 @@ git clone https://github.com/viruskizz/42bangkok-piscinec-scripts.git ~/
 ```
 
 #### Setup Evaluate script
+
+copy `evaluate-c.sh` into root directory
 ```sh
 cp ~/42bangkok-piscinec-scripts/evaluate-c.sh ~/evaluate-c.sh
+```
+
+grant permission to script file
+```sh
 chmod +x ~/evaluate-c.sh
 ```
 
@@ -103,25 +109,19 @@ Change url in curl command `curl <url> -OL filename.tar.gz`
 
 Not spcial use for `vim` and `gitignore`. You can learn more about [vim editor](https://www.vim.org/) and [gitignore file](https://git-scm.com/docs/gitignore) to configuration futher as you need.
 
-**To Testing your exercise**
-
-change to your _exercise directory_ and execute script and your file
-```sh
-cd c00/ex00/
-~/test-c.sh 
-```
-
 **To Evaluating your friend**
 
 change to your _root directory_ and run script with your exercise (including with main.c ready for test) or using check_c0x and your friend friend exercise that would be evaluated.
 
+clone your friend project
 ```sh
-# clone your friend project
 git clone http://git-x-x.com/xxxxx/ c00
+```
 
-# run automate test
-# ~/evaluate-c.sh <test_dir> <evaluated_dir>
-~/evaluate-c.sh check_c00 c00
+run automate test
+~/evaluate-c.sh <test_dir> <evaluated_dir>
+```sh
+~/evaluate-c.sh ~/42bangkok-piscinec-scripts/check_c00 c00
 ```
 
 

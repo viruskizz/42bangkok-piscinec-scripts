@@ -40,11 +40,10 @@ You can download or copy the separate file or clone entire project.
 ### Testing Project Directory
 
 :clipboard: Araiva Tester
-- :open_file_folder: c02
-- :open_file_folder: c03
-- :open_file_folder: c04
-- :open_file_folder: c05
-- :open_file_folder: c06
+- :open_file_folder: test_c02
+- :open_file_folder: test_c03
+- :open_file_folder: test_c04
+- :open_file_folder: test_c05
 
 :clipboard: nsmitsom Tester (100%)
 - :open_file_folder: check_c00
@@ -52,6 +51,7 @@ You can download or copy the separate file or clone entire project.
 - :open_file_folder: check_c02
 - :open_file_folder: check_c03
 - :open_file_folder: check_c04
+- :open_file_folder: check_c05
 - :open_file_folder: check_c07
 
 ## Fully Installation

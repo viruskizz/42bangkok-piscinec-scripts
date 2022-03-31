@@ -62,6 +62,16 @@ clone script project into your root dir **(Recommended)**
 git clone https://github.com/viruskizz/42bangkok-piscinec-scripts.git ~/
 ```
 
+#### Setup Single test runner
+copy `evaluate-c.sh` into root directory
+```sh
+cp ~/42bangkok-piscinec-scripts/test-c.sh ~/test-c.sh
+```
+grant permission to script file
+```sh
+chmod +x ~/test-c.sh
+```
+
 #### Setup Evaluate script
 
 copy `evaluate-c.sh` into root directory
@@ -108,6 +118,8 @@ Change url in curl command `curl <url> -OL filename.tar.gz`
 ## Usage
 
 Not spcial use for `vim` and `gitignore`. You can learn more about [vim editor](https://www.vim.org/) and [gitignore file](https://git-scm.com/docs/gitignore) to configuration futher as you need.
+
+**Run a single test**
 
 change to your _exercise directory_ and execute script and your file
 ```sh

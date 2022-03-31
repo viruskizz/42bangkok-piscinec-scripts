@@ -109,6 +109,12 @@ Change url in curl command `curl <url> -OL filename.tar.gz`
 
 Not spcial use for `vim` and `gitignore`. You can learn more about [vim editor](https://www.vim.org/) and [gitignore file](https://git-scm.com/docs/gitignore) to configuration futher as you need.
 
+change to your _exercise directory_ and execute script and your file
+```sh
+cd c04/ex00/
+~/test-c.sh ~/42bangkok-piscinec-scripts/check_c04/ex00/main.c ft_example.c
+```
+
 **To Evaluating your friend**
 
 change to your _root directory_ and run script with your exercise (including with main.c ready for test) or using check_c0x and your friend friend exercise that would be evaluated.

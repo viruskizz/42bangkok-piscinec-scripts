@@ -113,6 +113,8 @@ Not spcial use for `vim` and `gitignore`. You can learn more about [vim editor](
 
 change to your _root directory_ and run script with your exercise (including with main.c ready for test) or using check_c0x and your friend friend exercise that would be evaluated.
 
+### Step
+
 clone your friend project
 ```sh
 git clone http://git-x-x.com/xxxxx/ c00

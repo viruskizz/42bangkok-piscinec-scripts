@@ -1,0 +1,4 @@
+.gitignore
+*test*
+main.c
+*.out

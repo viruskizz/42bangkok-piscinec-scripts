@@ -6,7 +6,7 @@
 /*   By: tsomsa <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/09 20:21:17 by tsomsa            #+#    #+#             */
-/*   Updated: 2023/05/11 09:06:29 by krchuaip         ###   ########.fr       */
+/*   Updated: 2021/12/10 00:25:39 by tsomsa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@ int	main(void)
 	printf("Result: 0 => %d\n", ft_find_next_prime(0));
 	printf("Expect: 1 => 2\n");
 	printf("Result: 1 => %d\n", ft_find_next_prime(1));
-	printf("Expect: 2 => 3\n");
+	printf("Expect: 2 => 2\n");
 	printf("Result: 2 => %d\n", ft_find_next_prime(2));
-	printf("Expect: 13 => 17\n");
+	printf("Expect: 13 => 13\n");
 	printf("Result: 13 => %d\n", ft_find_next_prime(13));
 	printf("Expect: 284 => 293\n");
 	printf("Result: 284 => %d\n", ft_find_next_prime(284));

@@ -6,7 +6,7 @@
 /*   By: tsomsa <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/09 18:54:55 by tsomsa            #+#    #+#             */
-/*   Updated: 2021/12/09 23:52:55 by tsomsa           ###   ########.fr       */
+/*   Updated: 2023/05/15 11:04:30 by krchuaip         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,4 +32,6 @@ int	main(void)
 	printf("Result: sqrt(13) = %d\n", ft_sqrt(13));
 	printf("Expect: sqrt(934247393) = 0 [expect not found]\n");
 	printf("Result: sqrt(934247393) = %d\n", ft_sqrt(934247393));
+	printf("Expect: sqrt(2147483647) = 0\n");
+	printf("Result: sqrt(2147483647) = %d\n", ft_sqrt(2147483647));
 }

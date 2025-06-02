@@ -6,18 +6,18 @@ def board_to_array(board):
         arr.append(list(map(int, row)))
     return arr
 
-def get_view_port(views: list[int], direction: str):
+def get_view_port(size: int, views: list[int], direction: str):
     """
     Extracts the view port for a specific direction from the views string.
     """
-    size = int(os.environ.get('TABLE_SIZE'))
+    # size = int(os.environ.get('TABLE_SIZE'))
     if direction == 'top':
         return views[0:size]
     elif direction == 'bottom':
-        return views[size:8]
+        return views[size:size*2]
     elif direction == 'left':
-        return views[8:12]
+        return views[size*2:size*3]
     elif direction == 'right':
-        return views[12:16]
+        return views[size*3:size*4]
     else:
         raise ValueError("Invalid direction specified. Use 'top', 'bottom', 'left', or 'right'.")

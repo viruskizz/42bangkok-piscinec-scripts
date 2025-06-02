@@ -5,8 +5,8 @@ def _validate_views_top(views: list[int], board: list[list[int]]) -> bool:
     """
     Validates the top view against the board configuration.
     """
-    top_view = get_view_port(views, 'top')
     size = len(board)
+    top_view = get_view_port(size, views, 'top')
     for j in range(size):
         max_height = 0
         visible_count = 0
@@ -22,8 +22,8 @@ def _validate_views_bottom(views: list[int], board: list[list[int]]) -> bool:
     """
     Validates the bottom view against the board configuration.
     """
-    bottom_view = get_view_port(views, 'bottom')
     size = len(board)
+    bottom_view = get_view_port(size, views, 'bottom')
     for j in range(size):
         max_height = 0
         visible_count = 0
@@ -40,8 +40,8 @@ def _validate_views_left(views: list[int], board: list[list[int]]) -> bool:
     """
     Validates the left view against the board configuration.
     """
-    left_view = get_view_port(views, 'left')
     size = len(board)
+    left_view = get_view_port(size, views, 'left')
     for i in range(size):
         max_height = 0
         visible_count = 0
@@ -57,8 +57,8 @@ def _validate_views_right(views: list[int], board: list[list[int]]) -> bool:
     """
     Validates the right view against the board configuration.
     """
-    right_view = get_view_port(views, 'right')
     size = len(board)
+    right_view = get_view_port(size, views, 'right')
     for i in range(size):
         max_height = 0
         visible_count = 0
@@ -84,11 +84,10 @@ def validate_views(views: list[int], board: list[list[int]]) -> bool:
         raise Exception("VIEW ERROR: Right view does not match the board configuration.")
     return True
 
-def validate_table_pattern(views: list[int], board: list[list[int]]) -> bool:
+def validate_table_pattern(size: int, views: list[int], board: list[list[int]]) -> bool:
     """
     Validates the table pattern against the views.
     """
-    size = int(os.environ.get('TABLE_SIZE'))
     if len(views) != size * 4:
         raise Exception("VIEWS ERROR: Views length does not match the expected size.")
     if len(board) != size or any(len(row) != size for row in board):

@@ -10,6 +10,7 @@ def parse_arguments():
     parser.add_argument('-e', '--executable', type=str, default='./rush01', help='Path to the rush01 executable.')
     parser.add_argument('-s', '--size', type=int, default=5, help='Size of the table to test.')
     parser.add_argument('-v', '--verbose', action='store_true', default=False, help='Enable verbose output.')
+    parser.add_argument('-d', '--debug', action='store_true', default=False, help='Enable debug output.')
     return parser.parse_args()
 
 def main():

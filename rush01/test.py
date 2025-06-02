@@ -3,8 +3,6 @@ import sys
 import os
 import subprocess
 import time
-from print_board import print_nice_board, print_board
-from utils import board_to_array
 from validate_views import validate_views, validate_table_pattern, validate_result
 from generator import get_possible_view, get_impossible_view
 
@@ -16,51 +14,63 @@ MAGENTA = "\033[35m"
 YELLOW_BOLD = "\033[1;33m"
 RESET_COLOR = "\033[0m"
 
-def runner(executable, views: list[int]) -> str:
-    """
-    Runs the executable with the given view portion and returns the output.
-    """
-    views_str = " ".join(map(str, views))
-    result = subprocess.run(f'{executable} "{views_str}"', shell=True, check=True, capture_output=True, encoding='utf-8')
-    return result.stdout.strip()
+def _board_to_array(board):
+    arr = []
+    for line in board.strip().split('\n'):
+        row = line.split()
+        arr.append(list(map(int, row)))
+    return arr
 
-def print_success(result, views):
-    """
-    Prints the result in a nice format.
-    """
-    if result == "Error":
-        print("Error: Invalid input or no solution found.")
-        return
-    print("Running with views:", " ".join(map(str, views)))
-    # print_nice_board(board, views)
+def print_nice_board(board, views, size):
+    print(" " * 3, " ".join(map(str, views[:size])))
+    print("-" * 16)
+    # Print top edge
+    for idx, row in enumerate(board):
+        print(views[size*2+idx:size*2+idx+1][0], end=" | ") # print left edge
+        for col in row:
+            print(col, end=" ")
+        print("| ", views[size*3+idx:size*3+idx+1][0], end="") # print right edge
+        print()
+    # Print bottom edge
+    print("-" * 16)
+    print(" " * 3, " ".join(map(str, views[size:size*2])))
+
+def print_board(board: list[list[int]]) -> None:
+    for row in board:
+        for col in row:
+            print(col, end=" ")
+        print()
 
 def test_success(args):
-    """
-    Tests the success of the output against the expected table.
-    """
     print(f"{YELLOW_BOLD}--- Testing Success Case ---{RESET_COLOR}")
     executable = args.executable
     size = args.size
+    passed = 0
+    failed = 0
     for time in range(10):
         views, tbl = get_possible_view(size)
         try:
             views_str = " ".join(map(str, views))
             result = subprocess.run(f'{executable} "{views_str}"', shell=True, check=True, capture_output=True, encoding='utf-8')
-            result = runner(executable, views)
+            result = result.stdout.strip()
             validate_result(size, result)
-            board = board_to_array(result)
+            board = _board_to_array(result)
             validate_table_pattern(size, views, board)
             validate_views(views, board)
             print(f"{time}: {views_str}", end="\t")
             print(f"{GREEN}OK{RESET_COLOR}")
             if args.verbose:
                 print(f"Output:")
-                # print_nice_board(board, views)
-                print_board(board)
+                if args.debug:
+                    print_nice_board(board, views, size)
+                else:
+                    print_board(board)
+            passed += 1
         except subprocess.CalledProcessError as e:
             print(f"Process_Error - {e}")
             print("Output:", result.stdout.strip())
             print(f"{RED}--- CRASH ---{RESET_COLOR}")
+            failed += 1
         except Exception as e:
             print(f"{time}: {views_str}", end="\t")
             print(f"{RED}KO{RESET_COLOR}")
@@ -71,13 +81,14 @@ def test_success(args):
                 print(f"{CYAN}Output:{RESET_COLOR}")
                 print(result)
                 print("---------------------------")
+            failed += 1
+    return passed, failed
 
 def test_invalid(args):
-    """
-    Tests the invalid of the output against the expected table.
-    """
     print(f"{YELLOW_BOLD}--- Testing Invalid Case ---{RESET_COLOR}")
     executable = args.executable
+    passed = 0
+    failed = 0
     cases = [
         ("3 2 1 2 1 2 3 2 3 2 2 1 2 1", "Few Numbers"),
         ("3 2 1 2 1 2 3 2 3 2 2 1 2 1 3 2 4", "Many Numbers"),
@@ -101,10 +112,15 @@ def test_invalid(args):
             if args.verbose:
                 print(f"Input: {case[0]}")
                 print(f"Output: {output}")
+            passed += 1
         except subprocess.CalledProcessError as e:
             print(f"Process_Error - {e}")
             print("Output:", e.stdout.strip())
+            print(f"{RED}--- CRASH ---{RESET_COLOR}")
+            failed += 1
         except Exception as e:
             print(f"Exception - {e}")
             print("Output:", result)
             print(f"{RED}Result: KO", RESET_COLOR)
+            failed += 1
+    return passed, failed

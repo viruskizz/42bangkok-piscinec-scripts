@@ -1,12 +1,27 @@
 import os
-from utils import get_view_port
+
+def _get_view_port(size: int, views: list[int], direction: str):
+    """
+    Extracts the view port for a specific direction from the views string.
+    """
+    # size = int(os.environ.get('TABLE_SIZE'))
+    if direction == 'top':
+        return views[0:size]
+    elif direction == 'bottom':
+        return views[size:size*2]
+    elif direction == 'left':
+        return views[size*2:size*3]
+    elif direction == 'right':
+        return views[size*3:size*4]
+    else:
+        raise ValueError("Invalid direction specified. Use 'top', 'bottom', 'left', or 'right'.")
 
 def _validate_views_top(views: list[int], board: list[list[int]]) -> bool:
     """
     Validates the top view against the board configuration.
     """
     size = len(board)
-    top_view = get_view_port(size, views, 'top')
+    top_view = _get_view_port(size, views, 'top')
     for j in range(size):
         max_height = 0
         visible_count = 0
@@ -23,7 +38,7 @@ def _validate_views_bottom(views: list[int], board: list[list[int]]) -> bool:
     Validates the bottom view against the board configuration.
     """
     size = len(board)
-    bottom_view = get_view_port(size, views, 'bottom')
+    bottom_view = _get_view_port(size, views, 'bottom')
     for j in range(size):
         max_height = 0
         visible_count = 0
@@ -41,7 +56,7 @@ def _validate_views_left(views: list[int], board: list[list[int]]) -> bool:
     Validates the left view against the board configuration.
     """
     size = len(board)
-    left_view = get_view_port(size, views, 'left')
+    left_view = _get_view_port(size, views, 'left')
     for i in range(size):
         max_height = 0
         visible_count = 0
@@ -58,7 +73,7 @@ def _validate_views_right(views: list[int], board: list[list[int]]) -> bool:
     Validates the right view against the board configuration.
     """
     size = len(board)
-    right_view = get_view_port(size, views, 'right')
+    right_view = _get_view_port(size, views, 'right')
     for i in range(size):
         max_height = 0
         visible_count = 0

@@ -103,7 +103,7 @@ def test_invalid(args):
     for idx, case in enumerate(cases):
         try:
             result = subprocess.run(f'{executable} "{case[0]}"', shell=True, check=True, capture_output=True, encoding='utf-8')
-            output = result.stderr.strip() if result.stderr else result.stdout.strip()
+            output = result.stderr.strip() or result.stdout.strip()
             print(f"{idx}: {case[1]}", end="\t")
             if "Error" in output:
                 print(f"{GREEN}OK{RESET_COLOR}")
@@ -114,10 +114,13 @@ def test_invalid(args):
                 print(f"Output: {output}")
             passed += 1
         except subprocess.CalledProcessError as e:
-            print(f"Process_Error - {e}")
-            print("Output:", e.stdout.strip())
-            print(f"{RED}--- CRASH ---{RESET_COLOR}")
-            failed += 1
+            if e.stderr.strip() == "Error":
+                print(f"{GREEN}OK{RESET_COLOR}")
+                passed += 1
+            else:
+                print(f"Process_Error - {e}")
+                print(f"{RED}--- CRASH ---{RESET_COLOR}")
+                failed += 1
         except Exception as e:
             print(f"Exception - {e}")
             print(f"{RED}Result: KO", RESET_COLOR)
@@ -137,7 +140,7 @@ def test_impossible(args):
         try:
             views_str = " ".join(map(str, views))
             result = subprocess.run(f'{executable} "{views_str}"', shell=True, check=True, capture_output=True, encoding='utf-8')
-            output = result.stderr.strip() if result.stderr else result.stdout.strip()
+            output = result.stderr.strip() or result.stdout.strip()
             if "Error" in output:
                 print(f"{time}: {views_str}", end="\t")
                 print(f"{GREEN}OK{RESET_COLOR}")

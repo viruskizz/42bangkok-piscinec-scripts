@@ -103,7 +103,7 @@ def test_invalid(args):
     for idx, case in enumerate(cases):
         try:
             result = subprocess.run(f'{executable} "{case[0]}"', shell=True, check=True, capture_output=True, encoding='utf-8')
-            output = result.stderr.strip() or result.stdout.strip()
+            output = result.stderr.strip() if result.stderr else result.stdout.strip()
             print(f"{idx}: {case[1]}", end="\t")
             if output == "Error":
                 print(f"{GREEN}OK{RESET_COLOR}")
@@ -137,7 +137,7 @@ def test_impossible(args):
         try:
             views_str = " ".join(map(str, views))
             result = subprocess.run(f'{executable} "{views_str}"', shell=True, check=True, capture_output=True, encoding='utf-8')
-            output = result.stdout.strip() or result.stderr.strip()
+            output = result.stderr.strip() if result.stderr else result.stdout.strip()
             if output == "Error":
                 print(f"{time}: {views_str}", end="\t")
                 print(f"{GREEN}OK{RESET_COLOR}")
